@@ -28,8 +28,9 @@ func main() {
 
 	sshCommands := strings.Split(sshCommandsStr, ",")
 	for _, sshCmd := range sshCommands {
-		cmdStr := fmt.Sprintf("compute ssh --quiet --project %s --zone %s %s --command \"%s\"", projectID, zone, instanceName, sshCmd)
-		cmdSplit := strings.Split(cmdStr, " ")
+		baseCmdStr := fmt.Sprintf("compute ssh --quiet --project %s --zone %s %s --command", projectID, zone, instanceName)
+		cmdSplit := strings.Split(baseCmdStr, " ")
+		cmdSplit = append(cmdSplit, sshCmd)
 
 		fmt.Printf("Executing %s...\n", sshCmd)
 		cmd := exec.Command("gcloud", cmdSplit...)
@@ -37,7 +38,6 @@ func main() {
 		out, err := cmd.CombinedOutput()
 		if err != nil {
 			log.WithError(err).Fatalf("command errored")
-
 		}
 
 		fmt.Println(string(out))
