@@ -36,9 +36,8 @@ func main() {
 
 		out, err := cmd.CombinedOutput()
 		if err != nil {
-			fmt.Printf("Error: %s\n", err)
-			fmt.Println("Exiting...")
-			return
+			log.WithError(err).Fatalf("command errored")
+
 		}
 
 		fmt.Println(string(out))
