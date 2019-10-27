@@ -28,7 +28,7 @@ func main() {
 
 	sshCommands := strings.Split(sshCommandsStr, ",")
 	for _, sshCmd := range sshCommands {
-		cmdStr := fmt.Sprintf("compute ssh --quiet --project %s --zone %s %s --command \"%s\"", projectID, zone, instanceName, "uname")
+		cmdStr := fmt.Sprintf("compute ssh --quiet --project %s --zone %s %s --command \"%s\"", projectID, zone, instanceName, sshCmd)
 		cmdSplit := strings.Split(cmdStr, " ")
 
 		fmt.Printf("Executing %s...\n", sshCmd)
