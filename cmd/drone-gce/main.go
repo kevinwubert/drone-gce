@@ -11,7 +11,8 @@ import (
 )
 
 func main() {
-	googleCredentials := os.Getenv("PLUGIN_GOOGLE_CREDENTIALS")
+	googleCredentials := os.Getenv("GOOGLE_CREDENTIALS")
+
 	// write google creds to a file
 	buf := []byte(googleCredentials)
 	err := ioutil.WriteFile("/certs/svc_account.json", buf, 0644)
