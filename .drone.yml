@@ -13,7 +13,7 @@ steps:
   image: plugins/gcr
   settings:
     registry: us.gcr.io
-    repo: kevinwubert/drone-gce
+    repo: kbpartpicker/drone-gce
     dockerfile: Dockerfile
     tags: 
     - latest
