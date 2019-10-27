@@ -5,4 +5,4 @@ FROM google/cloud-sdk:alpine
 RUN apk -Uuv add ca-certificates
 ADD bin/drone-gce-linux-amd64 /bin/gce
 
-ENTRYPOINT ./bin/gce
+ENTRYPOINT ["/bin/gce"]
