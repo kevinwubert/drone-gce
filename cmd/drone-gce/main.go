@@ -12,7 +12,7 @@ import (
 
 func main() {
 	googleCredentials := os.Getenv("GOOGLE_CREDENTIALS")
-
+	fmt.Println(len(googleCredentials))
 	// write google creds to a file
 	buf := []byte(googleCredentials)
 	err := ioutil.WriteFile("/certs/svc_account.json", buf, 0644)
