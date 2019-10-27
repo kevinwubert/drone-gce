@@ -11,7 +11,8 @@ import (
 )
 
 func main() {
-	googleCredentials := os.Getenv("GOOGLE_CREDENTIALS")
+	googleCredentials := os.Getenv("PLUGIN_JSON_KEY")
+
 	fmt.Println(len(googleCredentials))
 	// write google creds to a file
 	buf := []byte(googleCredentials)
